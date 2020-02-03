@@ -1,18 +1,15 @@
 package aws
 
-import (
-	"fmt"
-	"log"
-	"regexp"
-	"time"
-
-	"github.com/aws/aws-sdk-go/aws"
-	"github.com/aws/aws-sdk-go/service/fsx"
-	"github.com/hashicorp/terraform-plugin-sdk/helper/resource"
-	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
-	"github.com/hashicorp/terraform-plugin-sdk/helper/validation"
-	"github.com/terraform-providers/terraform-provider-aws/aws/internal/keyvaluetags"
-)
+import "fmt"
+import "github.com/aws/aws-sdk-go/aws"
+import "github.com/aws/aws-sdk-go/service/fsx"
+import "github.com/hashicorp/terraform-plugin-sdk/helper/resource"
+import "github.com/hashicorp/terraform-plugin-sdk/helper/schema"
+import "github.com/hashicorp/terraform-plugin-sdk/helper/validation"
+import "github.com/terraform-providers/terraform-provider-aws/aws/internal/keyvaluetags"
+import "log"
+import "regexp"
+import "time"
 
 func resourceAwsFsxLustreFileSystem() *schema.Resource {
 	return &schema.Resource{
@@ -84,7 +81,7 @@ func resourceAwsFsxLustreFileSystem() *schema.Resource {
 				Type:         schema.TypeInt,
 				Required:     true,
 				ForceNew:     true,
-				ValidateFunc: validation.IntAtLeast(3600),
+				ValidateFunc: validation.IntAtLeast(1200),
 			},
 			"subnet_ids": {
 				Type:     schema.TypeSet,
